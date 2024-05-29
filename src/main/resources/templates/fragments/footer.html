@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>footer</title>
+</head>
+<body>
+    <footer th:fragment="footer">
+       <br/><p>Copyrights 2024. <a href="/">Main page</a></p>
+    </footer>
+
+    <footer th:fragment="admin-footer" th:if="${loggedUser != null && loggedUser.is_admin}">
+       <br/><p>Copyrights 2024. <a href="/admin">Admin panel</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>|User details|</h2>
+
+    <div>
+        <span th:text="${selectedUser.id}"></span>
+        <span th:text="${selectedUser.login}"></span>
+        <span th:text="${selectedUser.email}"></span>
+        <span th:text="${selectedUser.joined}"></span>
+        <p th:text="|Attention! ${selectedUser.login} password: ${selectedUser.password}|"></p>
+    </div>
+
+    <span th:replace="fragments/footer :: admin-footer"></span>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main th:if="${loggedUser != null && loggedUser.is_admin}">
+    <h2>|Admin panel|</h2>
+    <h4 th:text="|Welcome, ${loggedUser.login} - admin|"></h4>
+    <a href="/logout">Logout</a><br>
+
+    <div th:each="user : ${users}">
+        <span th:text="${user.id}"></span>
+        <span th:text="${user.login}"></span>
+        <span th:text="${user.email}"></span>
+        <span th:text="${user.joined}"></span>
+        <a th:href="|/admin/userDetails/${user.id}|">Show</a>
+        <a th:href="|/admin/remove/${user.id}|">[X]</a>
+    </div>
+
+    <span th:replace="fragments/footer :: admin-footer"></span>
+</main>
+
+</body>
+</html>

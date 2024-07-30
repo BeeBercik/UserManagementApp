@@ -35,8 +35,8 @@ public class LoginController {
 
     /**
      * Method checks whether login data are correct.
-     * @param login string from post request
-     * @param password string from post request
+     * @param login user login from post request
+     * @param password user password from post request
      * @param model
      * @param session
      * @return returns a string that represents the name of template or url to redirect user to the main page

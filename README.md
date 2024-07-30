@@ -12,8 +12,10 @@ UserManagementApp is a simple Java application built with Spring Boot that provi
 ## Technologies used
 - Java
 - Spring Boot
+- Spring MVC
 - Spring Data JPA
 - Hibernate
 - Thymeleaf
 - MySQL database
 - Maven
+- JavaDoc

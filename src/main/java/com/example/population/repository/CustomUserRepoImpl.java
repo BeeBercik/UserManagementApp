@@ -7,11 +7,22 @@ import jakarta.persistence.Query;
 
 import java.util.List;
 
-
+/**
+ * Implementation of the CustomUserRepository interface.
+ * Provides custom methods to interact with te User entity
+ */
 public class CustomUserRepoImpl implements CustomUserRepository {
+    /**
+     * The EntityManager is used to interact with the persistence context.
+     */
     @PersistenceContext
     private EntityManager entityManager;
 
+    /**
+     * Finds user by its login
+     * @param login login of the user to find
+     * @return returns User object from database or null if User is ot found
+     */
     @Override
     public User findByLogin(String login) {
         String hql = "FROM User WHERE login = :login";
@@ -19,6 +30,8 @@ public class CustomUserRepoImpl implements CustomUserRepository {
         query.setParameter("login", login);
 
         List<User> result = query.getResultList();
+
+        if(result.isEmpty()) return null;
 
         return result.get(0);
     }

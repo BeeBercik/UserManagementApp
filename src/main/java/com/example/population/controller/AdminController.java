@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Class represents admins' controller. Provides some admin actions.
+ */
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -20,6 +23,12 @@ public class AdminController {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Method checks if admin is logged in and display its panel
+     * @param model
+     * @param session
+     * @return returns templates name
+     */
     @GetMapping
     public String adminPanel(Model model, HttpSession session) {
         List<User> users = userRepository.findAll();
@@ -32,6 +41,11 @@ public class AdminController {
         return "admin/adminPanel";
     }
 
+    /**
+     * Function remvoes user from database
+     * @param id
+     * @return url that redirect to admin page
+     */
     @GetMapping("/remove/{userid}")
     private String removeUser(@PathVariable(name = "userid") Integer id) {
         userRepository.deleteById(id);
@@ -39,6 +53,13 @@ public class AdminController {
         return "redirect:/admin";
     }
 
+    /**
+     * Shows user details. Gets id from GET url and looks up user in database
+     * @param id user id in GET url
+     * @param model
+     * @param session
+     * @return return view (template) name with user details
+     */
     @GetMapping("/userDetails/{userid}")
     private String showUserDetails(@PathVariable(name = "userid") Integer id,
                                    Model model, HttpSession session) {

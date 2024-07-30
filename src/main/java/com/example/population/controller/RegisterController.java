@@ -37,10 +37,10 @@ public class RegisterController {
 
     /**
      * Method adds a User to the database if all conditions are met and data is correctly.
-     * @param login
-     * @param password
-     * @param r_password
-     * @param email
+     * @param login user login to add
+     * @param password user password to add
+     * @param r_password user repeat password to make sure if they are the same
+     * @param email user email to add
      * @param model
      * @return If user is added successfully it redirect user to login page by returning url. If user i not added, it returns register template name
      */

@@ -20,13 +20,10 @@ public class MainController {
     UserRepository userRepository;
 
     /**
-     * This method checks weather user is logged in. It decides about the main page look.
-     * If the logged user is admin, it redirects user to /admin page where ale users are listed and admin can make interaction with them.
-     * If the user is not logged it redirects him to the main page where there will be two links - to log in or register (thymeleaf template main.html)
-     * If the user is logged but not as admin it also redirects him to the main page but he will see all listed users (we make it in thymeleaf template main.html)
-     * @param model
-     * @param session
-     * @return
+     * This method checks whether user is logged in. It decides about the main page look.
+     * @param model we add data to the model to show them in the view (thymeleaf templates)
+     * @param session object represents Session
+     * @return returns template's name - redirects to admin page (ff the logged user is admin) or main page (if user is not logged or logged as ordinary user)
      */
     @GetMapping("/")
     public String main(Model model, HttpSession session) {
@@ -43,9 +40,9 @@ public class MainController {
     }
 
     /**
-     * Method responsible for user logout, it also redirects user to the main page
+     * Method responsible for user logout, it invalidates the session
      * @param session
-     * @return
+     * @return returns 'main' template
      */
     @GetMapping("/logout")
     public String logout(HttpSession session) {
